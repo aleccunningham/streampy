@@ -9,6 +9,8 @@ import (
   "fmt"
 )
 
+const BUFFERSIZE = 4096
+
 // Python "Class"
 type Manager struct {
   // Structs can contain structs
@@ -133,6 +135,24 @@ func (m *Manager) send(client *Client) {
       client.socket.Write(message)
     }
   }
+}
+
+// Open a file and write it to the socket
+// responding to a client's request for a file
+func (m *Manager) returnFile(client *Client) error {
+  defer client.socket.Close()
+  file, err := os.Open(fileName)
+  if err != nil {
+    log.Fatal(err)
+  }
+  defer file.Close()
+
+  buff := make([]byte, BUFFERSIZE)
+  for {
+    n, err := file.Read(buff)
+    client.socket.Write(buff)
+  }
+  return err
 }
 
 // Similair to a server in python, but it
