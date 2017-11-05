@@ -1,3 +1,5 @@
+#!/bin/usr/python
+
 import os, sys, threading
 
 class Message(threading.Thread):

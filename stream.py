@@ -1,7 +1,4 @@
 #!/usr/bin/python
-import sys, socket, getopt, fileinput
-from send import Message, File
-from recieve import Message, File
 
 # Server usage:
 #   ./stream.py -s | --serve <port>
@@ -13,6 +10,10 @@ from recieve import Message, File
 #   ./stream.py -c | --client -p | --port <port>
 # Passing the -c flag will specify the file should
 # be run as a client, and not a server daemon
+
+import sys, socket, getopt, fileinput
+from send import Message, File
+from recieve import Message, File
 
 host = socket.gethostname() = 'localhost' # Local machine
 buff = 1024 # Buffer size for data
