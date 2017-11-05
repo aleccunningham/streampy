@@ -46,7 +46,7 @@ def request_file(port):
     data = sys.stdin.readline().rstrip()
     sock.send(data.encode())
 
-    with condition:
+    with condition: #TODO
         while not file_written:
             condition.wait()
         _write_file()
@@ -70,7 +70,7 @@ def recieve_message(conn):
     """
     conn = listen_socket(port=3033)
     data = conn.recv(1024)
-    print('Message: {}'.format(data.decode()))
+    print('RECIEVED: {}'.format(data.decode()))
 
 def file_response(conn):
     """
@@ -117,6 +117,7 @@ def exit(conn):
     Close and exit the socket and script
     """
     conn.shutdown(socket.SHUT_WR)
+    conn.close()
     sys.exit(0)
 
 def process(port):
