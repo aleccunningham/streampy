@@ -1,0 +1,1 @@
+streampy is a collection of different language implementations of a client/server/producer/consumer. All handlers connect and work with the same socket on the same port, passing messages (strings) or files (passed in bytes)

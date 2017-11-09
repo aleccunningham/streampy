@@ -104,21 +104,6 @@ func (m *Manager) recieve(client *Client)  {
   }
 }
 
-// Adds recieve to the Client struct
-func (client *Client) receive() {
-    for {
-        message := make([]byte, 4096)
-        length, err := client.socket.Read(message)
-        if err != nil {
-            client.socket.Close()
-            break
-        }
-        if length > 0 {
-            fmt.Println("RECEIVED: " + string(message))
-        }
-    }
-}
-
 func (m *Manager) send(client *Client) {
   // Once the function has completed, defer
   // will run, ensuring the socket is closed

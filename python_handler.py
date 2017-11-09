@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # Copyright 2017.
-#
+# Author: Alec Cunningham
 # Server usage:
 #   ./stream.py -s | --serve <port>
 # Server is run in a daemonized thread, while clients
