@@ -26,7 +26,7 @@ def usage(stream):
          ' [-l] | [--listen]' + ' <port number>' +
          ' [-c | --client] Create a client instance, defaults to server')
 
-def send_message(port):
+def send_message(port, data):
     """
     Connect to socket and send a message
     via the connection to any threads on the socket
